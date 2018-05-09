@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Showing" table="Showing">
+    <indexes>
+      <index name="fk_Showing_Room1_idx" columns="Room_id"/>
+      <index name="fk_Showing_Movie1_idx" columns="Movie_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="date" type="datetime" column="date" nullable="true"/>
+    <field name="3d" type="boolean" column="3D" nullable="true"/>
+    <many-to-one field="room" target-entity="Room" fetch="LAZY">
+      <join-columns>
+        <join-column name="Room_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="movie" target-entity="Movie" fetch="LAZY">
+      <join-columns>
+        <join-column name="Movie_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
