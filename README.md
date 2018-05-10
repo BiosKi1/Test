@@ -1,5 +1,9 @@
 # Symfony
 
+
+### Lancer le serveur :
+php app/console server:start
+
 ### Route pour afficher les utilisateurs :
 http://127.0.0.1:8000/user/
 
