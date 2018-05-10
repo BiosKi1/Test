@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% form_theme delete_form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                People
+            </h1>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('people_index') }}">Back to the list</a>
+        </li>
+        <!--
+        <li>
+            <a href="{{ path('people_edit', { 'id': person.id }) }}">Edit</a>
+        </li>
+        -->
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+    <div class="row">
+        <table class="table table-bordered table-hover table-striped">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ person.id }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ person.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <td>{{ person.firstname }}</td>
+                </tr>
+                <tr>
+                    <th>Dateofbirth</th>
+                    <td>{% if person.dateOfBirth %}{{ person.dateOfBirth|date('Y-m-d') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Nationality</th>
+                    <td>{{ person.nationality }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -13,7 +13,8 @@ class MovieType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('duration');
+        $builder->add('title')
+                ->add('duration');
     }/**
      * {@inheritdoc}
      */
