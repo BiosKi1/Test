@@ -13,3 +13,6 @@ http://127.0.0.1:8000/movie/
 
 ### Route pour afficher les types de films :
 http://127.0.0.1:8000/type/
+
+### Route pour afficher les peoples :
+http://127.0.0.1:8000/people/
