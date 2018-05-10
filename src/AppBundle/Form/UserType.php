@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,7 +17,7 @@ class UserType extends AbstractType
     {
         $builder->add('lastname')
                 ->add('firstname')
-                ->add('dateOfBirth')
+                ->add('dateOfBirth', BirthdayType::class)
                 ->add('title',  ChoiceType::class, array(
                     'choices'  => array(
                         'Monsieur' => 'Monsieur',
