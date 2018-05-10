@@ -10,14 +10,9 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <many-to-one field="spectator" target-entity="Spectator" fetch="LAZY">
+    <many-to-one field="order" target-entity="Order" fetch="LAZY">
       <join-columns>
-        <join-column name="Spectator_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="showing" target-entity="Showing" fetch="LAZY">
-      <join-columns>
-        <join-column name="Showing_id" referenced-column-name="id"/>
+        <join-column name="Order_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="price" target-entity="Price" fetch="LAZY">
@@ -25,9 +20,14 @@
         <join-column name="Price_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="order" target-entity="Order" fetch="LAZY">
+    <many-to-one field="showing" target-entity="Showing" fetch="LAZY">
       <join-columns>
-        <join-column name="Order_id" referenced-column-name="id"/>
+        <join-column name="Showing_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="spectator" target-entity="Spectator" fetch="LAZY">
+      <join-columns>
+        <join-column name="Spectator_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

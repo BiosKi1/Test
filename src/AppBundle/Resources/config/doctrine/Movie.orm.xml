@@ -14,16 +14,6 @@
         <option name="unsigned"/>
       </options>
     </field>
-    <many-to-many field="type" target-entity="Type" inversed-by="movie" fetch="LAZY">
-      <join-table name="movie_has_type">
-        <join-columns>
-          <join-column name="Movie_id" referenced-column-name="id"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="Type_id" referenced-column-name="id"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
     <many-to-many field="people" target-entity="People" inversed-by="movie" fetch="LAZY">
       <join-table name="movie_has_people">
         <join-columns>
@@ -31,6 +21,16 @@
         </join-columns>
         <inverse-join-columns>
           <join-column name="People_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="type" target-entity="Type" inversed-by="movie" fetch="LAZY">
+      <join-table name="movie_has_type">
+        <join-columns>
+          <join-column name="Movie_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Type_id" referenced-column-name="id"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

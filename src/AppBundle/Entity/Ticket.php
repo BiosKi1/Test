@@ -1,6 +1,6 @@
 <?php
 
-
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,16 +15,16 @@ class Ticket
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \Order
+     * @var \AppBundle\Entity\Order
      *
-     * @ORM\ManyToOne(targetEntity="Order")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Order")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Order_id", referencedColumnName="id")
      * })
@@ -32,9 +32,9 @@ class Ticket
     private $order;
 
     /**
-     * @var \Price
+     * @var \AppBundle\Entity\Price
      *
-     * @ORM\ManyToOne(targetEntity="Price")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Price")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Price_id", referencedColumnName="id")
      * })
@@ -42,9 +42,9 @@ class Ticket
     private $price;
 
     /**
-     * @var \Showing
+     * @var \AppBundle\Entity\Showing
      *
-     * @ORM\ManyToOne(targetEntity="Showing")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Showing")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Showing_id", referencedColumnName="id")
      * })
@@ -52,9 +52,9 @@ class Ticket
     private $showing;
 
     /**
-     * @var \Spectator
+     * @var \AppBundle\Entity\Spectator
      *
-     * @ORM\ManyToOne(targetEntity="Spectator")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Spectator")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Spectator_id", referencedColumnName="id")
      * })
@@ -62,5 +62,110 @@ class Ticket
     private $spectator;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set order
+     *
+     * @param \AppBundle\Entity\Order $order
+     *
+     * @return Ticket
+     */
+    public function setOrder(\AppBundle\Entity\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return \AppBundle\Entity\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set price
+     *
+     * @param \AppBundle\Entity\Price $price
+     *
+     * @return Ticket
+     */
+    public function setPrice(\AppBundle\Entity\Price $price = null)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return \AppBundle\Entity\Price
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set showing
+     *
+     * @param \AppBundle\Entity\Showing $showing
+     *
+     * @return Ticket
+     */
+    public function setShowing(\AppBundle\Entity\Showing $showing = null)
+    {
+        $this->showing = $showing;
+
+        return $this;
+    }
+
+    /**
+     * Get showing
+     *
+     * @return \AppBundle\Entity\Showing
+     */
+    public function getShowing()
+    {
+        return $this->showing;
+    }
+
+    /**
+     * Set spectator
+     *
+     * @param \AppBundle\Entity\Spectator $spectator
+     *
+     * @return Ticket
+     */
+    public function setSpectator(\AppBundle\Entity\Spectator $spectator = null)
+    {
+        $this->spectator = $spectator;
+
+        return $this;
+    }
+
+    /**
+     * Get spectator
+     *
+     * @return \AppBundle\Entity\Spectator
+     */
+    public function getSpectator()
+    {
+        return $this->spectator;
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,19 +15,52 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="nb_places", type="integer", nullable=true)
+     */
+    private $nbPlaces;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
+
+
     /**
-     * @var integer
+     * Set nbPlaces
      *
-     * @ORM\Column(name="nb_places", type="integer", nullable=true)
+     * @param integer $nbPlaces
+     *
+     * @return Room
      */
-    private $nbPlaces;
+    public function setNbPlaces($nbPlaces)
+    {
+        $this->nbPlaces = $nbPlaces;
 
+        return $this;
+    }
 
+    /**
+     * Get nbPlaces
+     *
+     * @return integer
+     */
+    public function getNbPlaces()
+    {
+        return $this->nbPlaces;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
-

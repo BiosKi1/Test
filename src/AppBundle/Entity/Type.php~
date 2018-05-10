@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Type
+ *
+ * @ORM\Table(name="Type")
+ * @ORM\Entity
+ */
+class Type
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Movie", mappedBy="type")
+     */
+    private $movie;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->movie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

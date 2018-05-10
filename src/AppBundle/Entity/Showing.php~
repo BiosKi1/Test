@@ -1,0 +1,60 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Showing
+ *
+ * @ORM\Table(name="Showing", indexes={@ORM\Index(name="fk_Showing_Room1_idx", columns={"Room_id"}), @ORM\Index(name="fk_Showing_Movie1_idx", columns={"Movie_id"})})
+ * @ORM\Entity
+ */
+class Showing
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="3D", type="boolean", nullable=true)
+     */
+    private $troisd;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Movie
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Movie")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Movie_id", referencedColumnName="id")
+     * })
+     */
+    private $movie;
+
+    /**
+     * @var \AppBundle\Entity\Room
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Room_id", referencedColumnName="id")
+     * })
+     */
+    private $room;
+
+
+}
+

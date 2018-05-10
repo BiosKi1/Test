@@ -10,14 +10,14 @@
     </id>
     <field name="date" type="datetime" column="date" nullable="true"/>
     <field name="3d" type="boolean" column="3D" nullable="true"/>
-    <many-to-one field="room" target-entity="Room" fetch="LAZY">
-      <join-columns>
-        <join-column name="Room_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="movie" target-entity="Movie" fetch="LAZY">
       <join-columns>
         <join-column name="Movie_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="room" target-entity="Room" fetch="LAZY">
+      <join-columns>
+        <join-column name="Room_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

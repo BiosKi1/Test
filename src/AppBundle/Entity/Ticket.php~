@@ -1,0 +1,66 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ticket
+ *
+ * @ORM\Table(name="Ticket", indexes={@ORM\Index(name="fk_Ticket_Price1_idx", columns={"Price_id"}), @ORM\Index(name="fk_Ticket_Showing1_idx", columns={"Showing_id"}), @ORM\Index(name="fk_Ticket_Spectator1_idx", columns={"Spectator_id"}), @ORM\Index(name="fk_Ticket_Order1_idx", columns={"Order_id"})})
+ * @ORM\Entity
+ */
+class Ticket
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Order
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Order")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Order_id", referencedColumnName="id")
+     * })
+     */
+    private $order;
+
+    /**
+     * @var \AppBundle\Entity\Price
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Price")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Price_id", referencedColumnName="id")
+     * })
+     */
+    private $price;
+
+    /**
+     * @var \AppBundle\Entity\Showing
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Showing")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Showing_id", referencedColumnName="id")
+     * })
+     */
+    private $showing;
+
+    /**
+     * @var \AppBundle\Entity\Spectator
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Spectator")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Spectator_id", referencedColumnName="id")
+     * })
+     */
+    private $spectator;
+
+
+}
+
