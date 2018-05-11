@@ -22,10 +22,12 @@ class PeopleType extends AbstractType
                 ->add('lastname')
                 ->add('dateOfBirth', BirthdayType::class)
                 ->add('nationality')
+            /*
                 ->add('movie', EntityType::class, array(
                     'class'        => Movie::class,
                     'choice_label' => 'title',
-                ));
+                ))
+            */;
     }
 
     /**
