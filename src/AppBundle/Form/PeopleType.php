@@ -23,6 +23,7 @@ class PeopleType extends AbstractType
                 ->add('dateOfBirth', BirthdayType::class)
                 ->add('nationality')
             /*
+             * Affichage de la liste des films
                 ->add('movie', EntityType::class, array(
                     'class'        => Movie::class,
                     'choice_label' => 'title',
